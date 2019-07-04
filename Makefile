@@ -3,4 +3,4 @@
 all: images
 
 images:
-	debirf make debstack -s
+	debirf make -s debstack
