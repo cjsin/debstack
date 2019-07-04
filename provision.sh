@@ -19,6 +19,11 @@ function prep()
         export DEVUSER="vagrant"
         export SOURCES="/vagrant"
         export CLEAN=0
+        sed -r -i \
+           -e '/PasswordAuthentication no/ s/no/yes/' \
+           -e 's/^(|#)(PermitRootLogin)[[:space:]]*(.*)/\2 yes/' \
+           /etc/ssh/sshd_config 
+        systemctl restart sshd
     elif [[ ! -d "/lib/modules" ]]
     then
         echo "Running in docker"
