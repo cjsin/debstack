@@ -1,0 +1,5 @@
+#!/bin/sh -e
+cat <<EOF > "$DEBIRF_ROOT"/root/.bashrc
+export PS1='\$? \h:\w\\$ '
+umask 022
+EOF
